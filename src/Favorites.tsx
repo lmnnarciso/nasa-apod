@@ -61,7 +61,15 @@ export const Favorites = () => {
     )
   }
 
-  let removeSelectedFavorites = () => {}
+  let removeSelectedFavorites = () => {
+    let selectedFavoritesKeys = Object.keys(selectedFavorites).map(item => item)
+
+    setFavorites(
+      favorites.filter(
+        (favorite: favorite) => !selectedFavoritesKeys.includes(favorite.date),
+      ),
+    )
+  }
   return (
     <Row gutter={[16, 16]} justify="center">
       {favorites.map((favorite: favorite) => {
