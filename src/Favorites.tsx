@@ -91,6 +91,7 @@ export const Favorites = () => {
 
   let removeAll = () => {
     setFavorites([])
+    setSelectedFavorites({})
   }
   return (
     <>
