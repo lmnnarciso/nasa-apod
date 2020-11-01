@@ -2,6 +2,7 @@ import React from 'react'
 import useLocalStorageState from './utils/useLocalStorageState'
 import {Row, Col} from 'antd'
 import {FavoriteCard} from './components/FavoriteCard'
+
 interface favorite {
   date: string
   explanation: string
@@ -14,7 +15,7 @@ interface favorite {
 }
 
 export const Favorites = () => {
-  let [favorites] = useLocalStorageState(
+  let [favorites, setFavorites] = useLocalStorageState(
     'favorites',
     () => localStorage.getItem('favorites') || [],
   )
@@ -53,6 +54,14 @@ export const Favorites = () => {
     }
     return false
   }
+
+  let removeFavorite = (date: string) => {
+    setFavorites(
+      favorites.filter((favorite: favorite) => favorite.date !== date),
+    )
+  }
+
+  let removeSelectedFavorites = () => {}
   return (
     <Row gutter={[16, 16]} justify="center">
       {favorites.map((favorite: favorite) => {
