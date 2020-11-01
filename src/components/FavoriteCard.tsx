@@ -1,6 +1,6 @@
 import React from 'react'
-import {Card} from 'antd'
-import {CheckCircleTwoTone} from '@ant-design/icons'
+import {Card, Col, Row} from 'antd'
+import {CheckCircleTwoTone, CloseCircleTwoTone} from '@ant-design/icons'
 
 let {Meta} = Card
 
@@ -18,22 +18,33 @@ interface favorite {
 interface IProps {
   selectCard: Function
   favorite: favorite
+  removeFavorite: Function
   isSelected: Function
 }
-export const FavoriteCard = ({selectCard, favorite, isSelected}: IProps) => {
+export const FavoriteCard = ({
+  selectCard,
+  favorite,
+  isSelected,
+  removeFavorite,
+}: IProps) => {
   return (
     <Card
       className={`selectable-card`}
+      key={favorite.date}
       style={{minHeight: '100%'}}
       onClick={e => {
         selectCard(favorite.date, favorite)
       }}
       title={
         <>
-          {isSelected(favorite.date) && (
-            <CheckCircleTwoTone twoToneColor="#52c41a" />
-          )}
-          {favorite.title}
+          <Row justify="space-between">
+            <Col>
+              {isSelected(favorite.date) && (
+                <CheckCircleTwoTone twoToneColor="#52c41a" />
+              )}
+              {favorite.title}
+            </Col>
+          </Row>
         </>
       }
       cover={

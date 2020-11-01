@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import Home from './Home'
+import {Home} from './Home'
 import {Favorites} from './Favorites'
 import {Layout, Menu, Space} from 'antd'
 const {Header, Content} = Layout
@@ -10,7 +10,7 @@ export default function App() {
     <Router>
       <Header>
         <div className="logo" />
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
           <Menu.Item key="1">
             <Link to="/">Home</Link>
           </Menu.Item>

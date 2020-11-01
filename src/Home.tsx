@@ -9,7 +9,7 @@ import {Preview} from './components/Preview'
 import {ActionBtnGroup} from './components/ActionBtnGroup'
 import './App.css'
 
-const Home = () => {
+export const Home = () => {
   let [favorites, setFavorites] = useLocalStorageState('favorites', () => {
     let localFavorites = localStorage.getItem('favorites')
 
@@ -178,5 +178,3 @@ const Home = () => {
     </Row>
   )
 }
-
-export default Home
